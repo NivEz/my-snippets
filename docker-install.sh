@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# this script installs docker and and activate it. You can also run this script as a non root user to set it up for a non root.
+# This script installs docker and activates it. If you run this script as a noon root user it will set up Docker for you as a non root user.
 
 me=$(whoami)
 
@@ -10,7 +10,7 @@ check_if_docker_installed () {
   return_code=$?
   if [ $return_code -eq 0 ]
   then
-    echo Docker is already installed on you machine
+    echo Docker is already installed on your machine
     IS_DOCKER_INSTALLED=1
   fi
 }
