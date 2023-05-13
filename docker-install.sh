@@ -23,13 +23,13 @@ install_docker () {
   if [ $install_rc -ne 0 ];
   then
     echo Could not install docker properly from official script!
-    return
+    exit $install_rc
   fi
 
   # start docker service
   sudo systemctl start docker
 
-  if [ $me == 'root' ];
+  if [[ "$me" == 'root' ]];
   then
     echo Installed docker as a root user
     return
@@ -52,6 +52,7 @@ install_docker () {
       echo Successfully installed docker as a non rot user
     else
       echo Failed installing docker or setting up it as a noon root user!
+      exit $return_code
     fi
   fi
 }
